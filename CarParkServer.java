@@ -6,7 +6,7 @@ public class CarParkServer {
 		ServerSocket CPServerSocket = null;
 		String serverName = "Car Park Server";
 		boolean listening = true;
-		double sharedVariable = 100;
+		double sharedVariable = 100; //Temporal shared variable, will probably have to change it.
 		
 		SharedSpacesState sharedSpace = new SharedSpacesState(sharedVariable);
 		
