@@ -1,14 +1,14 @@
 import java.net.*;
 import java.io.*;
 
-public class EntranceClient1 {
+public class EntranceClient2 {
 	public static void main(String args[]) throws IOException{
 		
 		//Setting socket, in and out variables:
 		Socket entranceSocket = null;
 		PrintWriter out = null;
 		BufferedReader in = null;
-		String CarID = "Car 1";
+		String CarID = "Car 2";
 		
 		try{
 			entranceSocket = new Socket("localhost", 4545);

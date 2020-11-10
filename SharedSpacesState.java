@@ -4,7 +4,7 @@ import java.io.*;
 public class SharedSpacesState {
 	private SharedSpacesState mySharedSpaceObj;
 	private double mySharedVariable;
-	private String myThreadName; 
+	private String myThreadName;
 	private boolean parking = false; //True if a car has a spot, false otherwise.
 	private int carsWaiting = 0; //number of cars waiting.
 	
@@ -27,7 +27,8 @@ public class SharedSpacesState {
 		--carsWaiting;
 		parking = true;
 		System.out.println(me.getName()+ " got a space!");
-	}
+	}	
+	
 	
 	//Releases a space when a car is finished.
 	public synchronized void releaseSpace(){
@@ -38,6 +39,8 @@ public class SharedSpacesState {
 		System.out.println(me.getName()+ " released a space!");
 	}
 	
+	
+	//Process the keyboard input:
 	public synchronized String processInput(String myThreadName, String theInput){
 		System.out.println(myThreadName + " received "+ theInput);
 		String theOutput = null;
@@ -49,9 +52,15 @@ public class SharedSpacesState {
 				System.out.println(myThreadName + " made the sharedVariable: "+ mySharedVariable);
 				theOutput = "Action completed. Shared variable now = "+ mySharedVariable;
 			}
-			else{  //Incorrect request.
-				theOutput = myThreadName + "received incorrect request. Only understand \"Enter car park!\"";
+			else if(myThreadName.equals("Car Park Space 2")){
+				System.out.println("Hello car 2!");
+				mySharedVariable = mySharedVariable / 50;
+				System.out.println(myThreadName + " made the sharedVariable: "+ mySharedVariable);
+				theOutput = "Action completed. Shared variable now = "+ mySharedVariable;
 			}
+		}
+		else{  //Incorrect request.
+			theOutput = "Received incorrect request. Only understand \"Enter car park!\"";
 		}
 		//Return the message to Car Park Server
 		System.out.println(theOutput);

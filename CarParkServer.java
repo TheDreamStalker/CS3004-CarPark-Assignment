@@ -8,8 +8,10 @@ public class CarParkServer {
 		boolean listening = true;
 		double sharedVariable = 100; //Temporal shared variable, will probably have to change it.
 		
+		//Create the shared object in global scope:
 		SharedSpacesState sharedSpace = new SharedSpacesState(sharedVariable);
 		
+		//Make the server socket:
 		try{
 			CPServerSocket = new ServerSocket(4545);
 		} catch(IOException e){
@@ -19,7 +21,9 @@ public class CarParkServer {
 		System.out.println(serverName + " started!");
 		
 		while(listening){
-			new CarParkServerSpaces(CPServerSocket.accept(), "Car Park Space 1", sharedSpace).start();
+			new CarParkServerSpace(CPServerSocket.accept(), "Car Park Space 1", sharedSpace).start();
+			new CarParkServerSpace(CPServerSocket.accept(), "Car Park Space 2", sharedSpace).start();
 		}
+		CPServerSocket.close();
 	}
 }
