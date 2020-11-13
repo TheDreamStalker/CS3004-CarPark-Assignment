@@ -1,6 +1,8 @@
 import java.net.*;
 import java.io.*;
 
+//This class deals with the management of the requests that the user has written.
+
 public class ServerRequestHandler extends Thread {
 	private final CarParkServer carParkServer;
 	private final Socket socket;

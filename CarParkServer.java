@@ -1,6 +1,8 @@
 import java.net.*;
 import java.io.*;
 
+//This class deals with the "background logic" of the server.
+
 public class CarParkServer {
 	private final String name;
 	private final ServerSocket CPServerSocket;
