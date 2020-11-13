@@ -13,6 +13,9 @@ public class ExitClient {
 		String fromUser;
 		String fromServer;
 		
+		//Same story with this print as with the ones in the entrance client:
+		System.out.println("[EXIT CLIENT] Up and running! Please type the car you wish to leave by using the following syntax: \"exit x\" where x is the car's number");
+		
 		while(true){
 			  try {
 	                exitSocket = new Socket("localhost", 4545);
@@ -27,7 +30,6 @@ public class ExitClient {
 	            }
 
 	            String carID = "";
-	            //System.out.println("[EXIT CLIENT] Up and running! Please type the car you wish to kick:");
 	            System.out.print("> ");
 	            fromUser = keyboard.readLine(); // get the user input
 	            if (fromUser != null) {

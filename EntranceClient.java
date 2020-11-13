@@ -17,6 +17,14 @@ public class EntranceClient {
 		String fromUser;
 		String fromServer;
 		
+		/**
+		 * //These prints below are kinda tricky since technically when this is printed it hasn't connected yet, 
+		 * but if I put it on the loop it will also loop this message and I don't want that.
+		 * So, let's just leave it outside, it does the job. It's just to make it more clear for the user.
+		 */
+		System.out.println("[ENTRANCE CLIENT] Up and running! Please type \"arrive\" to make a car arrive and \"enter\" to make it enter.");
+		System.out.println("[ENTRANCE CLIENT] Please note that the order matters. However, you can make as many cars as you want wait.");
+		
 		//Send the keyboard input to the server for processing:
 		while (true) {
             try {
@@ -31,7 +39,7 @@ public class EntranceClient {
                 System.exit(1);
             }
             
-            //System.out.println("[ENTRANCE CLIENT] Up and running! Please type your request:");
+          
             System.out.print("> ");
             fromUser = keyboard.readLine(); // get the user input
             if (fromUser != null) {
