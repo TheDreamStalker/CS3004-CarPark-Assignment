@@ -30,7 +30,7 @@ public class ServerRequestHandler extends Thread {
 				
 				
 				String carEntrance = message[2]; //Number stating the entrance the car came from
-				String carID = reqCarID+ "(" + carEntrance + ")";
+				String carID = reqCarID+ "(" + carEntrance + ")"; //Prints the cars' ID plus the entrance where they came from.
 				
 				if(reqType.equals("ENTER-REQUEST")){ //handle an enter request from the EntranceClient
 					boolean wasParked = carParkServer.enterCarPark(carID);
