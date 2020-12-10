@@ -26,10 +26,9 @@ public class ServerRequestHandler extends Thread {
 				//Split the request into two parts, as mentioned, an exit request will require the car's ID:
 				String[] message = request.split(":"); 
 				String reqType = message[0]; //First part of the request, either arrive, enter or exit
-				//String carEntrance = message[1]; //Number stating the entrance the car came from
 				String reqCarID = message[1]; //Get the car ID for the exit request
 				
-				//int carID = Integer.parseInt(reqCarID);
+				
 				String carEntrance = message[2]; //Number stating the entrance the car came from
 				String carID = reqCarID+ "(" + carEntrance + ")";
 				
