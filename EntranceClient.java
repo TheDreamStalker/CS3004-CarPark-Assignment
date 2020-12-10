@@ -56,7 +56,8 @@ public class EntranceClient {
                         System.err.println("There are no cars waiting to enter.");
                         continue;
                     }
-                    out.println("ENTER-REQUEST:" + entranceQueue.peek()+":1");   // format: "ENTER-REQUEST:X", where X is the car ID
+                    out.println("ENTER-REQUEST:" + entranceQueue.peek()+":1");   // format:"ENTER-REQUEST:X", where X is the car ID
+                    //The +:1 just adds the entrance where it came from
                 } 
                 else {
                     System.err.println("Invalid command.");

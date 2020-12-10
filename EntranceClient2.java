@@ -60,7 +60,8 @@ public static void main(String args[]) throws IOException{
                         System.err.println("There are no cars waiting to enter.");
                         continue;
                     }
-                    out.println("ENTER-REQUEST:" + entranceQueue.peek()+":2");   // format: "ENTER-REQUEST:X", where X is the car ID 2 for the entrance
+                    out.println("ENTER-REQUEST:" + entranceQueue.peek()+":2");   // format:"ENTER-REQUEST:X", where X is the car ID
+                  //The +:2 just adds the entrance where it came from
                 } 
                 else {
                     System.err.println("Invalid command.");
