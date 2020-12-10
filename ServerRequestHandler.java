@@ -26,19 +26,22 @@ public class ServerRequestHandler extends Thread {
 				//Split the request into two parts, as mentioned, an exit request will require the car's ID:
 				String[] message = request.split(":"); 
 				String reqType = message[0]; //First part of the request, either arrive, enter or exit
+				//String carEntrance = message[1]; //Number stating the entrance the car came from
 				String reqCarID = message[1]; //Get the car ID for the exit request
 				
-				int carID = Integer.parseInt(reqCarID);
+				//int carID = Integer.parseInt(reqCarID);
+				String carEntrance = message[2]; //Number stating the entrance the car came from
+				String carID = reqCarID+ "(" + carEntrance + ")";
 				
 				if(reqType.equals("ENTER-REQUEST")){ //handle an enter request from the EntranceClient
 					boolean wasParked = carParkServer.enterCarPark(carID);
 					if(wasParked){
 						out.println("ALLOW"); //The car was parked successfully
-						carParkServer.log("Car "+ carID + " has parked.", true);
+						carParkServer.log("Car "+ reqCarID +" from entrance "+carEntrance +" has parked.", true);
 					}
 					else{
 						out.println("DENY"); //Car park full, couldn't park the car
-						carParkServer.log("Car "+ carID + " is waiting to enter.", true);
+						carParkServer.log("Car "+ reqCarID +" from entrance "+carEntrance +" is waiting to enter.", true);
 						return;
 					}
 				}
@@ -46,7 +49,7 @@ public class ServerRequestHandler extends Thread {
 					boolean success = carParkServer.exitCarPark(carID);
 					if(success){
 						out.println("SUCCESSFUL"); //Car left the car park
-						carParkServer.log("Car "+ carID + " has left the car park.", true);
+						carParkServer.log("Car "+ reqCarID +" from entrance "+ carEntrance+ " has left the car park.", true);
 					}
 					else{
 						out.println("UNSUCCESSFUL"); //Error happened, probably car ID was not found.

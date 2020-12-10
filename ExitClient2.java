@@ -1,8 +1,12 @@
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
-public class ExitClient {
-	public static void main(String args[]) throws IOException{
+public class ExitClient2 {
+public static void main(String args[]) throws IOException{
 		
 		//Setting socket, in and out variables:
 		Socket exitSocket = null;
@@ -14,7 +18,7 @@ public class ExitClient {
 		String fromServer;
 		
 		//Same story with this print as with the ones in the entrance client:
-		System.out.println("[EXIT CLIENT] Up and running! Please type the car you wish to leave by using the following syntax: \"exit x y\" where x is the car's number and y the entrance where it came from.");
+		System.out.println("[EXIT CLIENT 2] Up and running! Please type the car you wish to leave by using the following syntax: \"exit x\" where x is the car's number");
 		
 		while(true){
 			  try {
@@ -29,7 +33,7 @@ public class ExitClient {
 	                System.exit(1);
 	            }
 
-	            String carID = "";
+			  	String carID = "";
 	            String carEntrance = "";
 	            System.out.print("> ");
 	            fromUser = keyboard.readLine(); // get the user input
@@ -51,15 +55,15 @@ public class ExitClient {
 	        	   System.out.println("Invalid request.");
 	        	   continue;
 	           }
-
+	            
 	            // wait for the server response
 	            fromServer = in.readLine();
 	            if (fromServer != null) {
 	                if (fromServer.equals("SUCCESSFUL")) {
-	                    System.out.println("[EXIT CLIENT] Car " + carID + " from entrance "+ carEntrance+" has left the car park.");
+	                    System.out.println("[EXIT CLIENT 2] Car " + carID +" from entrance " + carEntrance+" has left the car park.");
 	                } 
 	                else if (fromServer.equals("UNSUCCESSFUL")) {
-	                    System.out.println("[EXIT CLIENT] Car " + carID +" from entrance "+ carEntrance+" is not currently in the car park (car doesn't exist).");
+	                    System.out.println("[EXIT CLIENT 2] Car " + carID +" from entrance " + carEntrance+" is not currently in the car park (car doesn't exist).");
 	                }
 	            }
 
@@ -67,5 +71,5 @@ public class ExitClient {
 	            in.close();
 	            exitSocket.close();
 		}
-	}	
+	}
 }
