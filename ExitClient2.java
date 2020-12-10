@@ -60,7 +60,7 @@ public static void main(String args[]) throws IOException{
 	            fromServer = in.readLine();
 	            if (fromServer != null) {
 	                if (fromServer.equals("SUCCESSFUL")) {
-	                    System.out.println("[EXIT CLIENT 2] Car " + carID +" from entrance " + carEntrance+" has left the car park.");
+	                    System.out.println("[EXIT CLIENT 2] Car " + carID +" from entrance " + carEntrance+" has left the car park through exit 2");
 	                } 
 	                else if (fromServer.equals("UNSUCCESSFUL")) {
 	                    System.out.println("[EXIT CLIENT 2] Car " + carID +" from entrance " + carEntrance+" is not currently in the car park (car doesn't exist).");
