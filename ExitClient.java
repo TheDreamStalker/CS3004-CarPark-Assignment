@@ -14,7 +14,7 @@ public class ExitClient {
 		String fromServer;
 		
 		//Same story with this print as with the ones in the entrance client:
-		System.out.println("[EXIT CLIENT] Up and running! Please type the car you wish to leave by using the following syntax: \"exit x y\" where x is the car's number and y the entrance where it came from.");
+		System.out.println("[EXIT CLIENT] Up and running! Please type the car you wish to leave by using the following syntax: \"exit x y\" where x is the car's number and y the entrance where it came from (either 1 or 2).");
 		
 		while(true){
 			  try {
